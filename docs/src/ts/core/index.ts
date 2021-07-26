@@ -23,10 +23,10 @@ export  default class{
         })
         
         function image_load(el:HTMLElement,url:string,done:()=>void) {
-            img.src = low_quality_url
+            img.src = url
             img.addEventListener('load', () => {
-                done()
                 el.style.backgroundImage = `url(${url})`
+                done()
             },{once:true})
         }
     }

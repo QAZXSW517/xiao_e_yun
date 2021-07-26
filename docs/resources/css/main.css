@@ -1,4 +1,15 @@
-.background{position:fixed;top:0;left:0;width:100vw;height:100vh;background-size:cover;background-repeat:no-repeat;background-position:center}
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./scss/main.scss ***!
+  \*********************************************************************************************************/
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
 
 
 /*# sourceMappingURL=../js/scss.js.map*/

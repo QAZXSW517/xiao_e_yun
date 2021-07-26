@@ -33,7 +33,7 @@ module.exports = {
                 use: ["ts-loader"],
             },
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.scss$/i,
                 // 把 sass-loader 放在首要處理 (第一步)
                 use: [MiniCssExtractPlugin.loader,
                 {
