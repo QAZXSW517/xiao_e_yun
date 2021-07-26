@@ -25,7 +25,7 @@ module.exports = {
         filename: '../resources/js/[name].js',
         sourceMapFilename: "../resources/js/[name].js.map"
     },
-    devtool: "source-map",
+    devtool:  'eval-source-map',
     module: {
         rules: [
             {
