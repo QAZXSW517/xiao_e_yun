@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "ES2020",
+        "target": "ES2020",
+        "moduleResolution": "node",
+        "strictFunctionTypes": true,
+        "outDir":"../resources/js/",
+        "alwaysStrict":true,
+        "sourceMap": true,
+        "mapRoot": "/resources/js/",
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "ts/*.ts",
+        "ts/**/*.ts",
+    ],
+}

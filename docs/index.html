@@ -5,159 +5,16 @@
     <title>悪運的家</title><!--網站名稱-->
     <meta name="keywords" content="小惡運, xiao e yun">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!--網站名稱-->
-    <link rel="icon" href="images/logo.ico" type="image/x-icon"><!--網站圖標-->
-    <link rel="stylesheet" type="text/css" href="stylesheets/root.css" media="screen"><!--css集start-->
-    <link rel="stylesheet" type="text/css" href="stylesheets/animation.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/class.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/page.css" media="screen"><!--css集end-->
-    <link rel="stylesheet" type="text/css" href="stylesheets/index.css" media="screen">
+    <link rel="icon" href="resources/images/logo.ico" type="image/x-icon"><!--網站圖標-->
+    <link rel="stylesheet" type="text/css" href="resources/css/main.css" media="screen">
 </head>
 
 <body>
-    <div class="content">
-        <!--常駐內容-->
-        <div class="header">
-            <!--標頭-->
-            <div class="welcome">
-                悪運の
-                <sup>家~</sup><!--歡迎-->
-                <hr class="welcome_line" size=6 width=90px align=left>
-            </div>
-            <a class="setting" type="text/html" href="setting.html">設置</a>
-        </div>
-        <p class="background"> </p>
-    </div>
+    <div id="main_background" class="background"></div>
+    <div id="preload_background" class="background"></div>
+    <main id="main_content">
 
-    <div class="main_content">
-        <!--主要內容-->
-        <p class="air_block" />
-        <div class="left_section">
-            <!--左側內容-->
-            <div class="web_link">
-                <!--網站連結頭-->
-                <p class="title" id="web_link_title">網站連結</p>
-                <ul>
-                    <li class=web>
-                        <button onclick="web('steam')">Steam</button>
-                    <li class=web>
-                        <button onclick="web('discord')">Discord</button>
-                    <li class=web>
-                        <button onclick="web('twitter')">Twitter</button>
-                    <li class=web>
-                        <button onclick="web('imgur')">Imgur</button>
-                    <li class=web>
-                        <button onclick="web('github')">GitHub</button>
-                    <li class=web>
-                        <button onclick="web('youtube')">YouTube</button>
-                    <li class=web>
-                        <button onclick="web('twitch')">Twitch</button>
-                </ul>
-            </div><!--網站連結尾-->
-        </div>
-
-        <div class="main_section">
-                <div class="time mid_content">
-                <!--中間內容-->
-                <h1>你好呀</h1>
-                <h2 id="hello_hours">(看一下時鐘)</h2>
-            </div>
-        </div>
-        <div class="right_section">
-            <!--右側內容-->
-            <p class="air_block" id="right_air" />
-            <div id=steam_page class=link style="display:none">
-                <!--steam介面-->
-                <h1 class="title">steam帳號!</h1><!--標題-->
-                <div class="account">
-                    <!--QAZXSW517-->
-                    <img class="avatar" src="images/QAZXSW517.png" width="200" height="200" />
-                    <a class="name" href="https://steamcommunity.com/id/QAZXSW517/">◎小悪運◎</a>
-                    <p class="description">歡迎回來呀</p>
-                </div>
-                <div class="account">
-                    <!--xiao_e_yun-->
-                    <img class="avatar" src="images/xiao_e_yun.png" width="200" height="200" />
-                    <a class="name" href="https://steamcommunity.com/id/xiao_e_yun/">◎悪魅醬◎</a>
-                    <p class="description">你過的好嗎</p>
-                </div>
-                <div class="account">
-                    <!--xiao_e_yun_wife-->
-                    <img class="avatar" src="images/xiao_e_yun_wife.png" width="200" height="200" />
-                    <a class="name" href="https://steamcommunity.com/id/xiao_e_yun_wife">◎悪運の妻◎</a>
-                    <p class="description">記得我嗎</p>
-                </div>
-            </div>
-            <div id="discord_page" class="link" style="display:none">
-                <!--discord介面-->
-                <h1 class="title">discord帳號!</h1><!--標題-->
-                <!--帳號-->
-                <div class="account">
-                    <img class="avatar" src="images/QAZXSW517.png" width="200" height="200" />
-                    <button onclick="copy_link('discord')" class="name" id="discord">◎ 悪運醬 ◎#5639</button>
-                    <p class="copy" id="discord_tag">已複製</p>
-                    <p class="description">hihi</p>
-                </div>
-                <div class="account">
-                    <!--伺服器-->
-                    <img class="avatar" src="images/server.png" width="200" height="200" />
-                    <a class="name" href="https://discord.gg/4qYmbSc">歡迎來看看!</a>
-                    <p class="description">伺服器</p>
-                </div>
-            </div>
-            <div id="twitter_page" class="link" style="display:none">
-                <!--twitter介面-->
-                <h1 class="title">twitter帳號!</h1><!--標題-->
-                <div class="account">
-                    <img class="avatar" src="images/QAZXSW517.png" width="200" height="200" />
-                    <a class="name" href="https://twitter.com/qazxsw517">QAZXSW517</a>
-                    <p class="description">自己一個人</p>
-                </div>
-            </div>
-            <div id="imgur_page" class="link" style="display:none">
-                <!--imgur介面-->
-                <h1 class="title">imgur帳號!</h1><!--標題-->
-                <div class="account">
-                    <img class="avatar" src="images/imgur.png" width="200" height="200" />
-                    <a class="name" href="https://imgur.com/user/QAZXSW517/posts" width="200" height="200">QAZXSW517</a>
-                    <p class="description">呆呆的小狗</p>
-                </div>
-            </div>
-            <div id="github_page" class="link" style="display:none">
-                <!--github介面-->
-                <h1 class="title">github帳號!</h1><!--標題-->
-                <div class="account">
-                    <img class="avatar" src="images/xiao_e_yun.png" width="200" height="200" />
-                    <a class="name" href="https://github.com/xiao-e-yun">QAZXSW517</a>
-                    <p class="description">網站の家</p>
-                </div>
-            </div>
-            <div id="youtube_page" class="link" style="display:none">
-                <!--youtube介面-->
-                <h1 class="title">youtube帳號!</h1><!--標題-->
-                <div class="account">
-                    <img class="avatar" src="images/google.png" width="200" height="200" />
-                    <a class="name" href="https://www.youtube.com/channel/UCROMk2gFqOZ26rVjWoVnL9w">小悪運</a>
-                    <p class="description">拍片の大笨蛋</p>
-                </div>
-            </div>
-            <div id="twitch_page" class="link" style="display:none">
-                <!--twitch介面-->
-                <h1 class="title">twitch帳號!</h1><!--標題-->
-                <div class="account">
-                    <img class="avatar" src="images/QAZXSW517.png" width="200" height="200" />
-                    <a class="name" href="https://www.twitch.tv/xiao_e_yun">QAZXSW517</a>
-                    <p class="description">是直播間嗎</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="more">
-        <!--更多內容-->
-
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script charset="utf-8" src="javascript/cookie.js"></script><!--網站cookie js集-->
-    <script charset="utf-8" src="javascript/web_link.js"></script><!--網站連結js集-->
-    <script charset="utf-8" src="javascript/page.js"></script><!--網站js集-->
+    </main>
+    <script src="resources/js/main.js"></script>
 </body>
 </html>
