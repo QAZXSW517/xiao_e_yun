@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const getEntry = () => {
     const entry = {};
     const path = './ts/'
-    glob.sync("./ts/*.ts").forEach((name) => {
+    glob.sync("./ts/**.ts").forEach((name) => {
         const start = name.indexOf(path) + path.length; //前面路徑共8個位元的字串，設定的資料夾路徑不同，也要記得更改位元數喔!
         const end = name.length - 3; //減去附檔名 .js 共三個位元的字串
         const eArr = [];
@@ -25,7 +25,7 @@ module.exports = {
         filename: '../resources/js/[name].js',
         sourceMapFilename: "../resources/js/[name].js.map"
     },
-    devtool:  'eval-source-map',
+    devtool:  'source-map',
     module: {
         rules: [
             {

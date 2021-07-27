@@ -1,6 +1,10 @@
 export  default class{
     public constructor(){
     }
+    public DOM_ready(fun:()=>void){
+        document.addEventListener('DOMContentLoaded',fun,{once:true})
+    }
+
     public background(low_quality_url:string, high_quality_url:string){
         const info = this.info+"背景加載器|"
         console.log(info+"開始運行")
@@ -15,9 +19,9 @@ export  default class{
                 const done_time = Date.now()
                 console.log(info+"加載成功高畫質背景")
                 if((done_time - start_time)<= 50){
-                    pre_background.remove()
+                    pre_background.style.display = "none"
                 }else{
-                    this.fade_out(pre_background,()=>{pre_background.remove()},1200)
+                    this.fade_out(pre_background,()=>{},1200)
                 }
             })
         })
@@ -31,7 +35,37 @@ export  default class{
         }
     }
 
-    public fade_out(el:HTMLElement,done:()=>void,time:number=400){
+    public fade_in(el:HTMLElement,done?:()=>void,time:number=400){
+        const info = this.info+"淡入|"
+        console.log(info+time+"ms")
+
+        const opacity = getComputedStyle(el).opacity as unknown as number
+
+        if(el.style.display === "none"){
+            el.style.display = "block"
+        }
+        
+        const run_time = 10 //間隔 10ms
+        const total_i = Math.floor(time / run_time) //總運行次數
+        let i = total_i //運行次數
+
+        const interval = setInterval(run,run_time)
+        run()
+
+        function run() { 
+            i--
+
+            const fade_opacity = ( ( 1 - opacity ) / total_i * (total_i - i)) + opacity;
+            (el.style.opacity as unknown as number) = fade_opacity
+            
+            if(i === 0){
+                clearInterval(interval)
+                if(done){done()}
+            }
+        }
+    }
+
+    public fade_out(el:HTMLElement,done?:()=>void,time:number=400){
         const info = this.info+"淡出|"
         console.log(info+time+"ms")
 
@@ -45,15 +79,51 @@ export  default class{
         run()
 
         function run() { 
-            (el.style.opacity as unknown as number) = opacity / total_i * i
-            
             i--
+            
+            const fade_opacity = opacity / total_i * i;
+            (el.style.opacity as unknown as number) = fade_opacity
+            
             if(i === 0){
                 clearInterval(interval)
-                done()
+                el.style.display = "none"
+                if(done){done()}
             }
         }
     }
+    private __viewer = {}
+    public viewer(key?:string,val?:string){
+        if(key===undefined){ //&&val===undefined
+            return this.__viewer
+        }else if(val===undefined){
+            return this.__viewer[key]
+        }else{
+            if(val !== this.__viewer[key]){
+                try{
+                    const $this = this
+                    const el = document.getElementById("$"+key)
+                    if(el.style.display === "none"||el.style.opacity === "0"||$this.__viewer[key] === ""||$this.__viewer[key] === undefined){
+                        run()
+                    }else{
+                        $this.fade_out(el,run)
+                    }
+                    function run(){
+                        el.innerHTML = val
+                        $this.fade_in(el)
+                    }
+                }catch(e){
+                    const info = this.info+"viewer|"
+                    console.warn(info+"未找到id:"+key,e)
+                }
+            }
+            return this.__viewer[key] = val
+        }
+    }
 
-    public info = "|主要核心|"
+    public on(el:HTMLElement,event:string,fun:(e:Event)=>void){
+        el.addEventListener(event,fun,false)
+        return this
+    }
+
+    private info = "|主要核心|"
 }
