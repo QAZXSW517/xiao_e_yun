@@ -1,6 +1,7 @@
 import main_core from './core'
 const main = new main_core()
 main.DOM_ready(() => {
+    console.log('這個網站來自 ◎小悪運◎\n關於:https://xiaoeyun.me/about')
     const image_file = "resources/images/background"
     main.background(`${image_file}_blur.webp`, `${image_file}.webp`)
 

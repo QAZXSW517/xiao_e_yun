@@ -36,8 +36,6 @@ export  default class{
     }
 
     public fade_in(el:HTMLElement,done?:()=>void,time:number=400){
-        const info = this.info+"淡入|"
-        console.log(info+time+"ms")
 
         const opacity = Number(getComputedStyle(el).opacity) as unknown as number
 
@@ -66,8 +64,6 @@ export  default class{
     }
 
     public fade_out(el:HTMLElement,done?:()=>void,time:number=400){
-        const info = this.info+"淡出|"
-        console.log(info+time+"ms")
 
         const opacity = Number(getComputedStyle(el).opacity) as unknown as number
 
