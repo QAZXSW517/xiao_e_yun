@@ -1,6 +1,9 @@
 /*!*****************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./scss/main.scss ***!
   \*****************************************************************************************************************************************************************/
+* {
+  font-family: Microsoft JhengHei; }
+
 body {
   position: fixed;
   top: 0;
@@ -9,12 +12,14 @@ body {
   width: 100vw;
   margin: 0; }
   body > main {
+    cursor: pointer;
     margin: 10vh auto 0;
     display: flex;
     width: fit-content;
     height: fit-content;
-    backdrop-filter: blur(10px);
     border-radius: 10em;
+    backdrop-filter: blur(10px);
+    transform: translateZ(0);
     color: black;
     background-color: rgba(255, 255, 255, 0.6);
     text-shadow: 0 0 0.6em white;
@@ -41,7 +46,37 @@ body {
   margin: 10vh auto 0;
   padding: 0.8em 1.2em;
   font-size: min(max( 1.5em ,2vw),2em);
-  animation: fade_in 1.2s ease-in-out 0.1s both; }
+  animation: fade_in 1.2s ease-in-out 0.1s both;
+  justify-content: center; }
+  #hello_time.have_input {
+    min-width: 15em;
+    height: 1em; }
+    #hello_time.have_input input {
+      cursor: text;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      outline: none;
+      background-color: transparent;
+      border: none;
+      font-size: 1.8em;
+      text-align: center; }
+      #hello_time.have_input input.inline {
+        width: 80%; }
+        #hello_time.have_input input.inline + button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 20%;
+          font-size: 1em;
+          border-radius: 10em;
+          border-width: 0;
+          background: rgba(255, 255, 255, 0.4);
+          box-shadow: 0 0 0.1em 0 rgba(0, 0, 0, 0.4); }
 
 @keyframes fade_in {
   from {

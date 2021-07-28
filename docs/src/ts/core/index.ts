@@ -39,7 +39,7 @@ export  default class{
         const info = this.info+"淡入|"
         console.log(info+time+"ms")
 
-        const opacity = getComputedStyle(el).opacity as unknown as number
+        const opacity = Number(getComputedStyle(el).opacity) as unknown as number
 
         if(el.style.display === "none"){
             el.style.display = "block"
@@ -69,7 +69,7 @@ export  default class{
         const info = this.info+"淡出|"
         console.log(info+time+"ms")
 
-        const opacity = getComputedStyle(el).opacity as unknown as number
+        const opacity = Number(getComputedStyle(el).opacity) as unknown as number
 
         const run_time = 10 //間隔 100ms
         const total_i = Math.floor(time / run_time) //總運行次數
@@ -92,7 +92,7 @@ export  default class{
         }
     }
     private __viewer = {}
-    public viewer(key?:string,val?:string){
+    public viewer(key?:string,val?:string,done?:()=>void){
         if(key===undefined){ //&&val===undefined
             return this.__viewer
         }else if(val===undefined){
@@ -110,6 +110,7 @@ export  default class{
                     function run(){
                         el.innerHTML = val
                         $this.fade_in(el)
+                        if(done){done()}
                     }
                 }catch(e){
                     const info = this.info+"viewer|"
@@ -118,11 +119,6 @@ export  default class{
             }
             return this.__viewer[key] = val
         }
-    }
-
-    public on(el:HTMLElement,event:string,fun:(e:Event)=>void){
-        el.addEventListener(event,fun,false)
-        return this
     }
 
     private info = "|主要核心|"
